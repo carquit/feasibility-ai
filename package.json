@@ -6,10 +6,8 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "install:ci": "npm ci",
     "dev": "vite",
     "build": "vinext build",
-    "start": "node dist/standalone/server.js",
     "test": "npm run build && node --test tests/*.test.mjs",
     "lint": "bash scripts/sites-env.sh -- eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate"

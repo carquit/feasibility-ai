@@ -26,7 +26,6 @@ npm run dev
 ```bash
 npm ci
 npm run build
-npm run start
 ```
 
 The project requires Node.js 22.13 or newer.
@@ -34,12 +33,13 @@ The project requires Node.js 22.13 or newer.
 ## Hostinger deployment from GitHub
 
 1. Create a new GitHub repository and upload the contents of this package to the repository root.
-2. In Hostinger, create a Node.js application and connect the GitHub repository.
-3. Set the install command to `npm ci`.
+2. In Hostinger, create a web application and connect the GitHub repository.
+3. Select the `Vite` framework preset.
 4. Set the build command to `npm run build`.
-5. Set the start command to `npm run start`.
-6. Use Node.js 22.13 or newer and deploy.
-7. Point `feasibility.ai` to the Hostinger application after the first successful deployment.
+5. Set the output directory to `dist/client`.
+6. Leave the entry file blank; this is a static front-end and has no Node server.
+7. Use Node.js 22.x and deploy.
+8. Point `feasibility.ai` to the Hostinger application after the first successful deployment.
 
 ## Brand assets
 
