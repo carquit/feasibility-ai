@@ -4,7 +4,10 @@ set -euo pipefail
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 if [[ "${SITES_ENV_READY:-}" != "1" ]]; then
-  exec "${script_dir}/sites-env.sh" -- "$0" "$@"
+  # GitHub web uploads and ZIP extraction do not reliably preserve executable
+  # bits. Invoke both shell scripts explicitly so Hostinger can install from
+  # ordinary 0644 files.
+  exec bash "${script_dir}/sites-env.sh" -- bash "$0" "$@"
 fi
 
 command -v flock || {
