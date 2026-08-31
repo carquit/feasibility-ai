@@ -117,7 +117,7 @@ export default function App() {
       <section className="hero section-shell">
         <div className="hero-copy">
           <div className="hero-meta reveal"><div className="hero-coordinate" aria-hidden="true">AI DECISION INTELLIGENCE</div><div className="symposium-tag"><Sparkles size={14} /> Live symposium preview</div></div>
-          <h1 className="reveal reveal-delay-1">Know if your AI idea is<br /><em>worth building.</em></h1>
+          <h1 className="reveal reveal-delay-1">Validate your AI idea<br /><em>before you build it.</em></h1>
           <p className="hero-lede reveal reveal-delay-2">Describe the opportunity. Get an immediate, evidence-led view of feasibility—and the clearest next move before your team commits budget and momentum.</p>
           <div className="trust-line reveal reveal-delay-3"><span><Check size={14} /> Executive-ready readout</span><span><Check size={14} /> Private by design</span></div>
         </div>
