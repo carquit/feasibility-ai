@@ -1,33 +1,23 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-const developmentPreviewMeta =
-  /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
-
-test("renders development preview metadata", async () => {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
-
-  const response = await worker.fetch(
-    new Request("http://localhost/", {
-      headers: { accept: "text/html" },
-    }),
-    {
-      ASSETS: {
-        fetch: async () => new Response("Not found", { status: 404 }),
-      },
-    },
-    {
-      waitUntil() {},
-      passThroughOnException() {},
-    },
+test("emits the Hostinger homepage and linked sample report", async () => {
+  const home = await readFile(new URL("../dist/index.html", import.meta.url), "utf8");
+  const report = await readFile(
+    new URL("../dist/sample-report.html", import.meta.url),
+    "utf8",
+  );
+  const generatedReport = await readFile(
+    new URL("../dist/generated-report.html", import.meta.url),
+    "utf8",
   );
 
-  assert.equal(response.status, 200);
-  assert.match(
-    response.headers.get("content-type") ?? "",
-    /^text\/html\b/i,
-  );
-  assert.match(await response.text(), developmentPreviewMeta);
+  assert.match(home, /Feasibility\.ai/i);
+  assert.match(home, /href=["']\/sample-report\.html["']/i);
+  assert.match(home, /Describe the opportunity\. Get the decision\./i);
+  assert.match(home, /A complete report—not just an on-screen score/i);
+  assert.match(report, /Sample AI Feasibility Report/i);
+  assert.match(report, /AI copilot for construction-plan review/i);
+  assert.match(generatedReport, /Loading your decision blueprint/i);
 });
