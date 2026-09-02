@@ -6,7 +6,6 @@ import {
   CheckCircle2,
   CircleAlert,
   CircleDollarSign,
-  Clock3,
   FileCheck2,
   FlaskConical,
   Gauge,
@@ -16,8 +15,8 @@ import {
   Sparkles,
   Target,
   TriangleAlert,
-  X,
 } from "lucide-react";
+import Link from "next/link";
 import { PrintButton } from "./print-button";
 import "./report.css";
 
@@ -98,9 +97,9 @@ export default function SampleReport() {
   return (
     <main className="report-page">
       <header className="report-header">
-        <a className="report-brand" href="/" aria-label="Feasibility.ai home"><Mark /><span>feasibility<span>.ai</span></span></a>
+        <Link className="report-brand" href="/" aria-label="Feasibility.ai home"><Mark /><span>feasibility<span>.ai</span></span></Link>
         <div className="report-header-label"><Sparkles size={13} /> Sample decision blueprint</div>
-        <div className="report-actions"><a href="/"><ArrowLeft size={15} /> Back to website</a><PrintButton /></div>
+        <div className="report-actions"><Link href="/"><ArrowLeft size={15} /> Back to website</Link><PrintButton /></div>
       </header>
 
       <section className="report-hero">
@@ -204,7 +203,7 @@ export default function SampleReport() {
         </section>
       </div>
 
-      <footer className="report-footer"><a className="report-brand" href="/"><Mark /><span>feasibility<span>.ai</span></span></a><p>Evidence-to-decision intelligence for ambitious AI projects.</p><a href="/">Evaluate another opportunity <ArrowRight /></a></footer>
+      <footer className="report-footer"><Link className="report-brand" href="/"><Mark /><span>feasibility<span>.ai</span></span></Link><p>Evidence-to-decision intelligence for ambitious AI projects.</p><Link href="/">Evaluate another opportunity <ArrowRight /></Link></footer>
     </main>
   );
 }
