@@ -21,6 +21,8 @@ import {
 import { PrintButton } from "./print-button";
 import "./report.css";
 
+export const dynamic = "force-static";
+
 const scorecard = [
   { label: "Business value", score: 84, note: "Clear labor and rework savings" },
   { label: "Workflow fit", score: 78, note: "Fits an existing review step" },
