@@ -12,7 +12,7 @@ A symposium-ready MVP for evaluating whether an AI concept is worth building. Th
 - Restrained interaction feedback, score ring, progress indicators, and refined hover states
 - Reduced-motion accessibility support
 - Search-friendly page title, description, and semantic structure
-- GitHub- and Hostinger-ready static Vite package
+- GitHub- and Hostinger-ready Node package
 
 ## Run locally
 
@@ -26,21 +26,20 @@ npm run dev
 ```bash
 npm ci
 npm run build
+npm run start
 ```
 
-The deployable site is written to `dist/`. The project requires Node.js 22.13
-or newer for the build only; the deployed website does not run a Node server.
+The project requires Node.js 22.13 or newer.
 
 ## Hostinger deployment from GitHub
 
 1. Create a new GitHub repository and upload the contents of this package to the repository root.
-2. In Hostinger, connect the GitHub repository and choose the **Vite** framework preset.
-3. Set the root directory to `./` and package manager to `npm`.
+2. In Hostinger, create a Node.js application and connect the GitHub repository.
+3. Set the install command to `npm ci`.
 4. Set the build command to `npm run build`.
-5. Set the output directory to `dist`.
-6. Do not set an entry file or start command; this is a static deployment.
-7. Use Node.js 22.x for the build and deploy.
-8. Point `feasibility.ai` to the Hostinger application after the first successful deployment.
+5. Set the start command to `npm run start`.
+6. Use Node.js 22.13 or newer and deploy.
+7. Point `feasibility.ai` to the Hostinger application after the first successful deployment.
 
 ## Brand assets
 
